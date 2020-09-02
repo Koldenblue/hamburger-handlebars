@@ -1,6 +1,6 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
-var mysql = require("mysql");
+var mysql = require("mysql2");
 
 var app = express();
 
@@ -20,7 +20,7 @@ var connection = mysql.createConnection({
   port: 3306,
   user: "root",
   password: "sqlpasskev",
-  database: "quotes_db"
+  database: "burgers_db"
 });
 
 connection.connect(function(err) {
