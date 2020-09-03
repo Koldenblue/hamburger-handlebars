@@ -12,6 +12,10 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+//require the function from the routes files, with express() as the parameter
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -29,4 +33,8 @@ connection.connect(function(err) {
     return;
   }
   console.log("connected as id " + connection.threadId);
+});
+
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + PORT);
 });
