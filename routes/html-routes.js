@@ -5,19 +5,30 @@ module.exports = function(app) {
   // should be last route
   app.get("/", function(req, res) {
     Burgers.findAll({}).then(function(result) {
-      // console.log(result)
-      let myArray = [];
-      for (let elem of result) {
-        let newObj = {};
-        newObj["burger_name"] = elem["burger_name"]
-        myArray.push(newObj)
+      // initialize empty arrays to hold burger objects
+      let undevouredArray = [];
+      let devouredArray = [];
+
+      for (let i= 0; i < result.length; i++) {
+        // create the burger objects from the query results
+        let undevouredBurger = {};
+        let devouredBurger = {};
+        if (result[i]["devoured"] === false) {
+          undevouredBurger["burger_name"] = result[i]["burger_name"];
+          undevouredBurger["devoured"] = false;
+          undevouredArray.push(undevouredBurger);
+        }
+        else {
+          devouredBurger["burger_name"] = result[i]["burger_name"];
+          devouredBurger["devoured"] = true;
+          devouredArray.push(devouredBurger);
+        }
       }
-      console.log(myArray)
       res.render("index", {
         burgers : result[0]['burger_name'],
-        burgArray : myArray
+        burgArray : undevouredArray,
+        devouredBurgArray : devouredArray
       });
-    });
+    }).then()
   });
-
 }

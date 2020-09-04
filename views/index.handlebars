@@ -1,30 +1,30 @@
 <div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-    featured content or information.</p>
+  <h1 class="display-4">BURGERS! EAT THEM!</h1>
+  <p class="lead">My favorite food? Hamburgers, hands down.</p>
   <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  <p>Hamburgers and cheeseburgers are the best.</p>
+
 </div>
 
 <main class="container-fluid">
 
   <section class="row">
-    <div class="col-md-6 available-burgers">
+    <div class="col-md-6 available-burgers list-group">
       {{#each burgArray}}
-        <p>{{burger_name}}</p>
+        <li class="list-group-item-warning list-group-item">{{burger_name}}</li>
       {{/each}}
     </div>
 
-    <div class='col-md-6 devoured-burgers'>
+    <ul class='col-md-6 devoured-burgers list-group'>
       {{#each devouredBurgArray}}
-        <p>{{dev_burger_name}}</p>
+        <li class="list-group-item-danger list-group-item">{{burger_name}}</li>
       {{/each}}
-    </div>
+    </ul>
   </section>
 
 
   <section class='row'>
+
     <div class='col-md-4'>
       <form>
         <div class="form-group">
@@ -36,9 +36,10 @@
           <input type="checkbox" class="form-check-input" id="devour-check" name="devour-check" value="yes">
           <label class="form-check-label" for="devour-check">DEVOUR IMMEDIATELY</label>
         </div>
-        <button type="submit" id='burger-submit' class="btn btn-primary">Submit a burger</button>
+        <button type="submit" id='burger-submit' class="btn btn-success">Submit a burger</button>
       </form>
     </div>
+
   </section>
 
 </main>

@@ -15,6 +15,6 @@ var Burgers = sequelize.define("burgers", {
 
 // Syncs with DB
 // this will create the table if it doesn't already exist
-Burgers.sync();
+Burgers.sync({ force : true });
 
 module.exports = Burgers;
