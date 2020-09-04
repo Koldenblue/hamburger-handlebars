@@ -11,14 +11,13 @@ function main() {
     let newBurg = $("#new-burger").val().trim();
     console.log(newBurg);
 
-    let devCheck = document.getElementById("devour-check").getAttribute("devour-check");
-    console.log(devCheck)
+    let devCheck = document.getElementById("devour-check");
+    console.log(devCheck.checked);
+
     // post a new burger upon submittal
-    $.ajax({
-      url: "localhost:8080/api/burgers/new",
-      method: "POST"
-    }).then((response) => {
-      console.log(response)
-    })
+    $.post("/api/burgers/new", {
+      burger_name : newBurg,
+      devoured : devCheck.checked
+    });
   });
 }

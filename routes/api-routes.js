@@ -11,6 +11,7 @@ module.exports = function(app) {
 
   app.post("/api/burgers/new", function(req, res) {
     Burgers.create(req.body).then((result) => {
+      console.log(req.body)
       res.status(200).end();
     });
   });
