@@ -12,12 +12,12 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 //require the function from the routes files, with express() as the parameter
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 var connection = mysql.createConnection({
   host: "localhost",

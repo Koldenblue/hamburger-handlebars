@@ -10,15 +10,35 @@
 <main class="container-fluid">
 
   <section class="row">
-    <div class="col-md-6">
-      {{ burgers }}
+    <div class="col-md-6 available-burgers">
       {{#each burgArray}}
         <p>{{burger_name}}</p>
       {{/each}}
     </div>
+
+    <div class='col-md-6 devoured-burgers'>
+      {{#each devouredBurgArray}}
+        <p>{{dev_burger_name}}</p>
+      {{/each}}
+    </div>
   </section>
 
-  <section>
-    <button type='button' id='burger-submit' class='btn-success btn'>Submit a burger</button>
+
+  <section class='row'>
+    <div class='col-md-4'>
+      <form>
+        <div class="form-group">
+          <label for="new-burger">Enter a new burger!</label>
+          <input type="text" class="form-control" id="new-burger">
+        </div>
+
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="devour-check" name="devour-check" value="yes">
+          <label class="form-check-label" for="devour-check">DEVOUR IMMEDIATELY</label>
+        </div>
+        <button type="submit" id='burger-submit' class="btn btn-primary">Submit a burger</button>
+      </form>
+    </div>
   </section>
+
 </main>

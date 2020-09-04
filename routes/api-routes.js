@@ -9,7 +9,7 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/new", function(req, res) {
+  app.post("/api/burgers/new", function(req, res) {
     Burgers.create(req.body).then((result) => {
       res.status(200).end();
     });
