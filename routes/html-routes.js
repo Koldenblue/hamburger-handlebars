@@ -5,6 +5,20 @@ module.exports = function(app) {
   // should be last route
   app.get("/", function(req, res) {
     Burgers.findAll({}).then(function(result) {
+      console.log("HI")
+      console.log(result);
+      const nullBurger = [
+        {
+          burger_name: "Your burgers here!",
+          devoured: false
+        },
+        {
+          burger_name: "Devoured burgers here!",
+          devoured: true
+        }
+      ]
+      result === [] ? result = nullBurger : null;
+
       // initialize empty arrays to hold burger objects
       let undevouredArray = [];
       let devouredArray = [];
@@ -25,7 +39,6 @@ module.exports = function(app) {
         }
       }
       res.render("index", {
-        burgers : result[0]['burger_name'],
         burgArray : undevouredArray,
         devouredBurgArray : devouredArray
       });
