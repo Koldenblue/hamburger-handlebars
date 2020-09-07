@@ -1,23 +1,36 @@
 "use strict"
+const burgerBtn = $("#burger-submit");
+const devourBtn = $(".burger-devour-btn");
 $(document).ready(main);
 
-
-const burgerBtn = $("#burger-submit");
-
+/** Main controller function, runs upon page load. */
 function main() {
-  burgerBtn.on("click", function(event) {
-    event.preventDefault();
+    listen();
+}
 
-    let newBurg = $("#new-burger").val().trim();
-    console.log(newBurg);
+/** Adds event listeners to page. */
+function listen() {
+    burgerBtn.on("click", function (event) {
+        event.preventDefault();
 
-    let devCheck = document.getElementById("devour-check");
-    console.log(devCheck.checked);
+        // get value from form and checkbox
+        let newBurg = $("#new-burger").val().trim();
+        console.log(newBurg);
+        let devCheck = document.getElementById("devour-check");
+        console.log(devCheck.checked);
 
-    // post a new burger upon submittal
-    $.post("/api/burgers/new", {
-      burger_name : newBurg,
-      devoured : devCheck.checked
+        // post a new burger to the api upon submittal
+        $.post("/api/burgers/new", {
+            burger_name: newBurg,
+            devoured: devCheck.checked
+        }).then(() => {
+            location.reload()
+        })
     });
-  });
+
+    devourBtn.on("click")
+}
+
+function renderPage() {
+
 }
