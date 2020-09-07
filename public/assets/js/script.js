@@ -1,6 +1,6 @@
 "use strict"
 const burgerBtn = $("#burger-submit");
-
+const devourBtn = $(".burger-devour-btn");
 $(document).ready(main);
 
 /** Main controller function, runs upon page load. */
@@ -27,8 +27,10 @@ function listen() {
             location.reload()
         })
     });
+
+    devourBtn.on("click")
 }
 
 function renderPage() {
-    location.reload
+
 }

@@ -35,11 +35,13 @@ module.exports = function(app) {
         if (result[i]["devoured"] === false) {
           undevouredBurger["burger_name"] = result[i]["burger_name"];
           undevouredBurger["devoured"] = false;
+          undevouredBurger["id"] = result[i]["id"];
           undevouredArray.push(undevouredBurger);
         }
         else {
           devouredBurger["burger_name"] = result[i]["burger_name"];
           devouredBurger["devoured"] = true;
+          devouredBurger["id"] = result[i]["id"];
           devouredArray.push(devouredBurger);
         }
       }

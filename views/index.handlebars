@@ -13,7 +13,13 @@
   <section class="row">
     <div class="col-md-6 available-burgers list-group">
       {{#each burgArray}}
-        <li class="list-group-item-warning list-group-item">{{burger_name}}</li>
+        <li class="list-group-item-warning list-group-item">
+          {{burger_name}}
+          <div class="text-right">
+            <button type=button class="burger-devour-btn btn btn-info" data-value={{id}}>Devour this burger!</button>
+          </div>
+        </li>
+        
       {{/each}}
     </div>
 
