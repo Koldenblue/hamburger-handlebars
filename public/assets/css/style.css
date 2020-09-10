@@ -3,10 +3,30 @@ h1 {
 }
 
 body {
-    background-color: red;
+    background-color: #52ad4a;
 }
 
-.burger-devour-btn {
+.burger-devour-btn, .list-group-item-danger, .list-group-item-warning {
     font-family: 'Luckiest Guy', cursive;
 
+}
+
+.jumbotron {
+    background-color: #514329;
+    color: antiquewhite;
+}
+
+.list-group-item-warning {
+    background-color: #fdad0d;
+    color: black;
+}
+
+.list-group-item-warning, .list-group-item-danger {
+    font-size: 1.4em;
+}
+.list-group-item-danger {
+    background-color: #BB0A21;
+    color: black;
+}
+.jumbotron p {
 }

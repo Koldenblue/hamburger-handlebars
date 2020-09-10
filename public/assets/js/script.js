@@ -1,6 +1,5 @@
 "use strict"
 const burgerBtn = $("#burger-submit");
-const devourBtn = $(".burger-devour-btn");
 $(document).ready(main);
 
 /** Main controller function, runs upon page load. */
@@ -24,11 +23,21 @@ function listen() {
             burger_name: newBurg,
             devoured: devCheck.checked
         }).then(() => {
-            location.reload()
+            location.reload();
         })
     });
 
-    devourBtn.on("click")
+    $(".burger-devour-btn").on("click", function() {
+        console.log("ckucclkd")
+        let devourId = $(this).attr("data-value")
+        console.log(devourId);
+        $.ajax({
+            url: "/api/burgers/" + devourId,
+            method: "PUT"
+        }).then(() => {
+            location.reload();
+        })
+    })
 }
 
 function renderPage() {
