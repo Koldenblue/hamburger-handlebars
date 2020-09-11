@@ -15,9 +15,7 @@
       {{#each burgArray}}
         <li class="list-group-item-warning list-group-item">
           {{burger_name}}
-          <div class="text-right">
-            <button type=button class="burger-devour-btn btn btn-info" data-value={{id}}>Devour this burger!</button>
-          </div>
+          <button type=button class="burger-devour-btn btn btn-info float-right" id='devour-btn-{{id}}' data-value='{{id}}'>Devour this burger!</button>
         </li>
         
       {{/each}}
@@ -25,7 +23,10 @@
 
     <ul class='col-md-6 devoured-burgers list-group'>
       {{#each devouredBurgArray}}
-        <li class="list-group-item-danger list-group-item">{{burger_name}}</li>
+        <li class="list-group-item-danger list-group-item">
+          {{burger_name}}
+          <button type=button class="burger-destroy-btn btn btn-info float-right" id='destroy-btn-{{id}}' data-value='{{id}}'>Purge this burger!</button>
+        </li>
       {{/each}}
     </ul>
   </section>
