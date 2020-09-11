@@ -5,6 +5,7 @@ $(document).ready(main);
 /** Main controller function, runs upon page load. */
 function main() {
     listen();
+    $("#new-burger").focus()
 }
 
 /** Adds event listeners to page. */
@@ -14,9 +15,7 @@ function listen() {
 
         // get value from form and checkbox
         let newBurg = $("#new-burger").val().trim();
-        console.log(newBurg);
         let devCheck = document.getElementById("devour-check");
-        console.log(devCheck.checked);
 
         // post a new burger to the api upon submittal
         $.post("/api/burgers/new", {
@@ -27,13 +26,24 @@ function listen() {
         })
     });
 
+    // gets the id from the devour button, then updates the burger with the selected id to 'devoured: true'
     $(".burger-devour-btn").on("click", function() {
-        console.log("ckucclkd")
-        let devourId = $(this).attr("data-value")
-        console.log(devourId);
+        let devourId = $(this).attr("data-value");
         $.ajax({
             url: "/api/burgers/" + devourId,
             method: "PUT"
+        }).then(() => {
+            location.reload();
+        })
+    })
+
+    // deletes the corresponding burger from the database on click
+    $(".burger-destroy-btn").on("click", function() {
+        let destroyId = $(this).attr("data-value");
+        destroyId = Number(destroyId)
+        $.ajax({
+            url: "/api/burgers/delete/" + destroyId,
+            method: "DELETE",
         }).then(() => {
             location.reload();
         })
