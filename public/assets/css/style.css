@@ -8,12 +8,17 @@ body {
 
 .burger-devour-btn, .list-group-item-danger, .list-group-item-warning {
     font-family: 'Luckiest Guy', cursive;
+}
 
+#burger-submit {
+    background-color: #514329;
 }
 
 .jumbotron {
     background-color: #514329;
     color: antiquewhite;
+    font-family: 'Luckiest Guy', cursive;
+
 }
 
 .list-group-item-warning {

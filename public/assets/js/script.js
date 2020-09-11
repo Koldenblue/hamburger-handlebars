@@ -34,6 +34,8 @@ function listen() {
             method: "PUT"
         }).then(() => {
             location.reload();
+            // got to the button at the bottom of the page
+            location.href="#burger-submit";
         })
     })
 
