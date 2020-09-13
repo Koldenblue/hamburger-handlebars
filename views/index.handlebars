@@ -34,47 +34,6 @@
     </ul>
   </section> --}}
 
-
-  <section class="row">
-    <ul class="col-md-6 available-burgers list-group">
-      {{#each burgArray}}
-
-            <div class="col-lg-6 menu-item" id={{id}}>
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">
-                            <img src="${filteredDrinks[i].thumbnail}" class="menu-img" alt="">
-                            <div>{{burger_name}}</div>
-                            <div class="menu-ingredients" style="margin-top: 5px">
-                                HELLO
-                            </div>
-                        </div>
-                        <div class="flip-back">
-                            <img src="" class="menu-img" alt="">
-                            <div class="menu-ingredients">
-                                <div>{{burger_description}}</div>
-                                <br>
-                                <div>back div</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-      {{/each}}
-    </ul>
-
-    <ul class='col-md-6 devoured-burgers list-group'>
-      {{#each devouredBurgArray}}
-        <li class="list-group-item-danger list-group-item">
-          {{burger_name}}
-          <button type=button class="burger-destroy-btn btn btn-info float-right" id='destroy-btn-{{id}}' data-value='{{id}}'>Purge this burger!</button>
-        </li>
-      {{/each}}
-    </ul>
-  </section>
-
-
   <section class='row'>
 
     <div class='col-md-4'>
@@ -86,12 +45,44 @@
 
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="devour-check" name="devour-check" value="yes">
-          <label class="form-check-label" for="devour-check">DEVOUR IMMEDIATELY</label>
+          <label class="form-check-label" for="devour-check">DEVOUR IMMEDIATELY?</label>
         </div>
-        <button type="submit" id='burger-submit' class="btn btn-success">Submit a burger</button>
+        <button type="submit" id='burger-submit' class="float-right btn btn-success">Submit a burger</button>
       </form>
     </div>
 
+  </section>
+
+
+  <section class="row">
+    <ul class="col-md-6 available-burgers list-group">
+      {{#each burgArray}}
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              {{!-- <img src="${filteredDrinks[i].thumbnail}" class="menu-img" alt=""> --}}
+              <div>{{burger_name}}</div>
+            </div>
+            <div class="flip-back">
+              {{!-- <img src="" class="menu-img" alt=""> --}}
+              <button type=button class="burger-devour-btn btn btn-info float-right" id='devour-btn-{{id}}'
+                data-value='{{id}}'>Devour this burger!</button>
+              <div>{{burger_description}}</div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </ul>
+
+    <ul class='col-md-6 devoured-burgers list-group'>
+      {{#each devouredBurgArray}}
+      <li class="list-group-item-danger list-group-item">
+        {{burger_name}}
+        <button type=button class="burger-destroy-btn btn btn-info float-right" id='destroy-btn-{{id}}'
+          data-value='{{id}}'>Purge this burger!</button>
+      </li>
+      {{/each}}
+    </ul>
   </section>
 
 </main>
