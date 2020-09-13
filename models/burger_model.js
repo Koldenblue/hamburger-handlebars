@@ -9,6 +9,7 @@ var sequelize = require("../config/connection.js");
 // the model, Burgers, is the model for the database! This should be capitalized by convention
 var Burgers = sequelize.define("burgers", {
   burger_name: Sequelize.STRING,
+  burger_description: Sequelize.STRING,
   devoured: Sequelize.BOOLEAN
 });
 
