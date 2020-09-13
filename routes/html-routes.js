@@ -19,7 +19,7 @@ module.exports = function(app) {
   // should be last route
   app.get("/", function(req, res) {
     Burgers.findAll({}).then(function(result) {
-      console.log(result);
+      // console.log(result);
       // display nullBurger values if database is empty
       result === [] ? result = nullBurger : null;
 
