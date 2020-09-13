@@ -3,7 +3,7 @@
 // This may be confusing but here Sequelize (capital) references the standard library
 var Sequelize = require("sequelize");
 // sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../config/connection.js");
+var { sequelize } = require("../config/connection.js");
 
 
 // the model, Burgers, is the model for the database! This should be capitalized by convention

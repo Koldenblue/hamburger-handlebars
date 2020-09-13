@@ -3,26 +3,27 @@
 // *********************************************************************************
 
 // Dependencies
-// var Sequelize = require("sequelize");
+require("dotenv").config();
+var Sequelize = require("sequelize");
 
 // // Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
-// var sequelize = new Sequelize("burgers_db", "root", "sqlpasskev", {
-//   host: "localhost",
-//   port: 3306,
-//   dialect: "mysql",
-//   pool: {
-//     // the max and min number of connections
-//     max: 5,
-//     min: 0,
-//     // idle is the time it takes for the server to idle out
-//     idle: 10000
-//   }
-// });
+var sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
+  host: "localhost",
+  port: 3306,
+  dialect: "mysql",
+  pool: {
+    // the max and min number of connections
+    max: 5,
+    min: 0,
+    // idle is the time it takes for the server to idle out
+    idle: 10000
+  }
+});
 
-// // Exports the connection for other files to use
-// module.exports = sequelize;
+// Exports the connection for other files to use
 require("dotenv").config();
 module.exports = {
+  sequelize,
   "development": {
     "username": process.env.DB_USERNAME,
     "password": process.env.DB_PASSWORD,
