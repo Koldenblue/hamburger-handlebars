@@ -13,39 +13,19 @@
 
 <main class="container-fluid">
 
-  {{!-- <section class="row">
-    <ul class="col-md-6 available-burgers list-group">
-      {{#each burgArray}}
-        <li class="list-group-item-warning list-group-item">
-          {{burger_name}}
-          <button type=button class="burger-devour-btn btn btn-info float-right" id='devour-btn-{{id}}' data-value='{{id}}'>Devour this burger!</button>
-        </li>
-        
-      {{/each}}
-    </ul>
-
-    <ul class='col-md-6 devoured-burgers list-group'>
-      {{#each devouredBurgArray}}
-        <li class="list-group-item-danger list-group-item">
-          {{burger_name}}
-          <button type=button class="burger-destroy-btn btn btn-info float-right" id='destroy-btn-{{id}}' data-value='{{id}}'>Purge this burger!</button>
-        </li>
-      {{/each}}
-    </ul>
-  </section> --}}
 
   <section class='row'>
 
-    <div class='col-md-4'>
+    <div class='col-md-6'>
       <form>
         <div class="form-group">
-          <label for="new-burger">Enter a new burger!</label>
+          <label for="new-burger" class='cursive'>Enter a new burger!</label>
           <input type="text" class="form-control" id="new-burger">
         </div>
 
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="devour-check" name="devour-check" value="yes">
-          <label class="form-check-label" for="devour-check">DEVOUR IMMEDIATELY?</label>
+          <label class="form-check-label cursive" for="devour-check">Devour Immediately?</label>
         </div>
         <button type="submit" id='burger-submit' class="float-right btn btn-success">Submit a burger</button>
       </form>
@@ -54,20 +34,20 @@
   </section>
 
 
-  <section class="row">
+  <section class="row burg-list">
     <ul class="col-md-6 available-burgers list-group">
       {{#each burgArray}}
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-front">
-              {{!-- <img src="${filteredDrinks[i].thumbnail}" class="menu-img" alt=""> --}}
-              <div>{{burger_name}}</div>
+               {{burger_name}}
             </div>
             <div class="flip-back">
               {{!-- <img src="" class="menu-img" alt=""> --}}
-              <button type=button class="burger-devour-btn btn btn-info float-right" id='devour-btn-{{id}}'
-                data-value='{{id}}'>Devour this burger!</button>
-              <div>{{burger_description}}</div>
+              <button type=button class="burger-devour-btn btn btn-info float-right" id='devour-btn-{{id}}' data-value='{{id}}'>
+                Devour this burger!
+              </button>
+                {{burger_description}}
             </div>
           </div>
         </div>
@@ -86,3 +66,7 @@
   </section>
 
 </main>
+
+<footer class='text-center'>
+  Designed By Kevin Miller
+</footer>
