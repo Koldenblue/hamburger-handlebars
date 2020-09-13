@@ -1,4 +1,4 @@
-const Burgers = require("../models/burger_model.js");
+const db = require("../models");
 const path = require("path");
 
 
@@ -21,7 +21,7 @@ module.exports = function(app) {
   // should be last route
   app.get("/", function(req, res) {
     // first perform an sql query to get all burgers
-    Burgers.findAll({}).then(function(result) {
+    db.Burger.findAll({}).then(function(result) {
       // console.log(result);
       // display nullBurger values if database is completely empty (this helps avoid errors as well)
       result === [] ? result = nullBurger : null;

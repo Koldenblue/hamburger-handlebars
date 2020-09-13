@@ -1,5 +1,6 @@
-const Burgers = require("../models/burger_model.js");
+
 const descriptions = require("./words.js");
+const db = require("../models");
 
 // here, the parameter app will be express()
 module.exports = function(app) {
@@ -7,7 +8,7 @@ module.exports = function(app) {
   // route to delete a given burger
   app.delete("/api/burgers/delete/:id", (req, res) => {
     console.log(req.params)
-    Burgers.destroy({
+    db.Burger.destroy({
       where: {
         id: req.params.id
       }
@@ -18,7 +19,7 @@ module.exports = function(app) {
 
   // returns all burgers in database
   app.get("/api/burgers", function(req, res) {
-    Burgers.findAll({}).then(function(result) {
+    db.Burger.findAll({}).then(function(result) {
       res.json(result);
     });
   });
@@ -32,14 +33,14 @@ module.exports = function(app) {
     }
     randDescription = Math.floor(Math.random() * descriptions.length);
     req.body["burger_description"] = "This burger is " + descriptions[randDescription];
-    Burgers.create(req.body).then((result) => {
+    db.Burger.create(req.body).then((result) => {
       res.status(200).end();
     });
   });
 
   // route to update the devoured state of the burger
   app.put("/api/burgers/:id", (req, res) => {
-    Burgers.update({
+    db.Burger.update({
       devoured: true
     },
     { 

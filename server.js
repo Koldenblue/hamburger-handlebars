@@ -5,6 +5,7 @@ var mysql = require("mysql2");
 var app = express();
 
 var PORT = process.env.PORT || 8080;
+const db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -19,22 +20,8 @@ require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "sqlpasskev",
-  database: "burgers_db"
-});
-
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
-});
-
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+db.sequelize.sync().then(() => {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
