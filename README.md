@@ -18,12 +18,12 @@ Hamburger handlebars is a website quickly designed and templated, using Express 
 
 <h3 id='installation'>Installation</h3>
 The website can easily be viewed at the link above. The source code can also be run using Node.js and Node Package Manager on a local machine. The database must also be initialized by using MySQL workbench. Clone this repository and navigate to the program in a terminal. Run "npm install" to install the appropriate dependencies. A file entitled '.env' will have to be created to hold local environment variables, consisting of the following code: 
-```
-DB_USERNAME=&lt;YOUR-SQL-USERNAME&gt;<br>
-DB_PASSWORD=&lt;YOUR-SQL-PASSWORD&gt;<br>
-DB_HOST=localhost<br>
-DB_DATABASE=burgers_db<br>
-```
+
+    DB_USERNAME=<YOUR-SQL-USERNAME>
+    DB_PASSWORD=<YOUR-SQL-PASSWORD>
+    DB_HOST=localhost
+    DB_DATABASE=burgers_db
+
 Finally, type "node server.js" into the terminal to get the local server running. Visit localhost:8080 in your web browser to see the website.
 
 <h3 id='usage'>Usage</h3>
