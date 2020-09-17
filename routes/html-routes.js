@@ -16,7 +16,9 @@ const nullBurger = [
 
 
 module.exports = function(app) {
-
+// to avoid querying every time, something like a "cache" could be used to store and update the database.
+// a framework could possibly be used for this
+// this could be useful for larger databases
 
   // should be last route
   app.get("/", function(req, res) {

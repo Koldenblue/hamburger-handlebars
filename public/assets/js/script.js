@@ -22,6 +22,7 @@ function listen() {
             burger_name: newBurg,
             devoured: devCheck.checked
         }).then(() => {
+            // to avoid reloading the page every time, this could be refactored to simply replace and append the div
             location.reload();
         })
     });
@@ -52,41 +53,9 @@ function listen() {
     })
 }
 
-function renderPage() {
-
-}
-
-
-function appendDrinks() {
-    $(".menu-container").html("")
-    
-    for (let i = 0; i < 8; i++) { 
-        $(".menu-container").append(`
-            <div class="col-lg-6 menu-item" id="${i}">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">
-                            <img src="${filteredDrinks[i].thumbnail}" class="menu-img" alt="">
-                            <div>${filteredDrinks[i].name}</div>
-                            <div class="menu-ingredients" style="margin-top: 5px">
-                                ${filteredDrinks[i].recipe}
-                            </div>
-                        </div>
-                        <div class="flip-back">
-                            <img src="${filteredDrinks[i].thumbnail}" class="menu-img" alt="">
-                            <div class="menu-ingredients">
-                                <div>${filteredDrinks[i].recipe}</div>
-                                <br>
-                                <div>${filteredDrinks[i].instructions}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `)
-    }
-}
 
 // todo: perhaps add flip cards to burgers
 // add random description of burgers on flip
 // add video background
+// correct borders?
+// instead of reloading page every time, append div?
